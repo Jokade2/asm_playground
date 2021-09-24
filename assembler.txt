@@ -1,20 +1,24 @@
-1) MOV [16], 1
+1) 
+MOV [16], 1
 
-2) MOV A, 128
+2) 
+MOV A, 128
 .LOOP:
 MOV [A], 1
 INC A
 CMP A, 144
 JNZ .LOOP
 
-3) MOV A, 231
+3) 
+MOV A, 231
 .LOOP:
 INC A
 MOV [A], 1
 CMP A, 255
 JNZ .LOOP
 
-4) MOV A, 231
+4) 
+MOV A, 231
 MOV C, 'B' 0x42
 .LOOP:
 INC A
@@ -22,7 +26,8 @@ MOV [A], C
 CMP A, 255
 JNZ .LOOP
 
-5) MOV A, 231
+5) 
+MOV A, 231
 MOV C, 0x30
 .LOOP:
 INC A
@@ -30,3 +35,14 @@ MOV [A], C
 INC C
 CMP A, 241
 JNZ .LOOP
+
+6) 
+JMP start
+DB 55
+DB 44
+
+start:
+MOV A, [2]
+MOV B, [3]
+MOV [2], B
+MOV [3], A
